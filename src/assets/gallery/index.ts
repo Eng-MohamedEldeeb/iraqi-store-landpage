@@ -1,10 +1,10 @@
-export { default as img1 } from "/gallery/1.jpg";
+export { default as img1 } from "/gallery/1.webp";
 export { default as img2 } from "/gallery/2.jpg";
 export { default as img3 } from "/gallery/3.jpg";
-export { default as img4 } from "/gallery/4.jpg";
-export { default as img5 } from "/gallery/5.jpg";
+export { default as img4 } from "/gallery/4.webp";
+export { default as img5 } from "/gallery/5.webp";
 export { default as img6 } from "/gallery/6.jpg";
-export { default as img7 } from "/gallery/7.jpg";
+export { default as img7 } from "/gallery/7.webp";
 export { default as img8 } from "/gallery/8.jpg";
 export { default as img9 } from "/gallery/9.jpg";
 export { default as img10 } from "/gallery/10.jpg";

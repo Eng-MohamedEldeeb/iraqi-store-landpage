@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as portfolioImgs from "./../../../../../assets/portfolio/index";
-import ImageModal from "./ImageModal";
+import { ImageModal } from "./ImageModal";
 
 const Portfolio = () => {
   const [activeImage, setActiveImage] = useState<string | null>(null);

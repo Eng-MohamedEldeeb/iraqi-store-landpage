@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ImageModal from "./Components/ImageModal";
 import * as galleryImgs from "./../../../assets/gallery/index";
+import ImageModal from "./Components/ImageModal";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -21,6 +21,8 @@ const Gallery = () => {
     { id: 13, src: galleryImgs.img13 },
     { id: 14, src: galleryImgs.img14 },
   ];
+
+  console.log({ imgs });
 
   return (
     <section className="py-24 bg-neutral-900">

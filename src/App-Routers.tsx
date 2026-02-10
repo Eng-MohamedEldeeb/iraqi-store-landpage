@@ -1,9 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "./project/Layout/Layout";
-import BookNow from "./project/pages/BookNow/BookNow";
-import Home from "./project/pages/Home/Home";
-import Gallery from "./project/pages/Gallery/Gallery";
-import ContactUs from "./project/pages/ContactUs/ContactUs";
+import { BookNow, ContactUs, Gallery, Home, Layout } from "./project/Pages";
 
 const AppRouters = () => {
   return createBrowserRouter(

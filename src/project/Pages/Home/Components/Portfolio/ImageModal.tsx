@@ -1,7 +1,7 @@
 import "./style.css";
 import { useState } from "react";
 
-const ImageModal = ({
+export const ImageModal = ({
   image,
   onClose,
 }: {
@@ -43,5 +43,3 @@ const ImageModal = ({
     </div>
   );
 };
-
-export default ImageModal;

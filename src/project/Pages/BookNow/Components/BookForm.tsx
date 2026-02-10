@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { useFormik } from "formik";
 import * as yup from "yup";
 import axios, { AxiosError } from "axios";
+import { useFormik } from "formik";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import type {
   IBookNow,
   TClientType,
   TSessionServices,
-} from "./../interface/IBookNow.interface.ts";
-import SuccessModal from "./SuccessModal/SuccessModal.tsx";
+} from "../../../../@types/IBookNow.interface";
+
+import { SuccessModal } from "./SuccessModal/SuccessModal";
 
 const BookForm = () => {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -26,8 +28,8 @@ const BookForm = () => {
   const onBook = async (value: IBookNow) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/v1/clients/leads/request-lead",
-        value
+        `${import.meta.env.API_URL}/clients/leads/request-lead`,
+        value,
       );
       console.log({ data });
       setShowSuccess(true);

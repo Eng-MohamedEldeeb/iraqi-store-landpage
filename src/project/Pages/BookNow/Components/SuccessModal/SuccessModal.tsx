@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 
-const SuccessModal = ({
+export const SuccessModal = ({
   isOpen,
   onClose,
 }: {
@@ -49,5 +49,3 @@ const SuccessModal = ({
     </div>
   );
 };
-
-export default SuccessModal;

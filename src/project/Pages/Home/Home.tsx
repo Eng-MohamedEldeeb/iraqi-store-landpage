@@ -1,7 +1,4 @@
-import Features from "./Components/Features";
-import Hero from "./Components/Hero";
-import Portfolio from "./Components/Portfolio/Portfolio";
-import Services from "./Components/Services";
+import { Features, Hero, Portfolio, Services } from "./Components";
 
 const Home = () => {
   return (

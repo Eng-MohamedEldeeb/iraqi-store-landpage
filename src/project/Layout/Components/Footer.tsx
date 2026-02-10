@@ -13,8 +13,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">
-              <span className="text-gray-400">Captura</span>{" "}
-              <span className="text-white">Production</span>
+              <span className="text-white">Photo House</span>{" "}
+              <span className="text-amber-500">El-Iraqi</span>
             </h3>
             <p className="text-neutral-400 text-sm max-w-sm mx-auto md:mx-0">
               Professional photography and visual production services for
@@ -98,7 +98,7 @@ const Footer = () => {
         "
         >
           <span>
-            © {new Date().getFullYear()} Captura Production. All rights
+            © {new Date().getFullYear()} Photo House El-Iraqi. All rights
             reserved.
           </span>
 

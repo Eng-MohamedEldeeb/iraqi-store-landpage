@@ -1,54 +1,42 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Drawer, Nav } from "./Components";
+import type { INavbarPaths } from "../../../../@types/INavbarPaths.interface";
 
 const Navbar = () => {
-  const navigateTo = useNavigate();
-  const [pathUrl, setPathUrl] = useState(location.pathname);
   const [isOpen, setIsOpen] = useState(false);
 
-  const onHomeClick = () => {
-    if (location.pathname == "/") return scroll({ top: 0, behavior: "smooth" });
-    setPathUrl("/");
-    return navigateTo("/");
-  };
-
-  const onGalleryClick = () => {
-    setPathUrl("/gallery");
-    return navigateTo("/gallery");
-  };
-
-  const onContactUsClick = () => {
-    setPathUrl("/contact-us");
-    return navigateTo("/contact-us");
-  };
-
-  const onBookNowClick = () => {
-    setPathUrl("/book-now");
-    return navigateTo("/book-now");
-  };
+  const paths: INavbarPaths[] = [
+    {
+      pathUrl: "/",
+      title: "Home",
+    },
+    {
+      pathUrl: "/gallery",
+      title: "Gallery",
+    },
+    {
+      pathUrl: "/store",
+      title: "Store",
+    },
+    {
+      pathUrl: "/contact-us",
+      title: "Contact Us",
+    },
+  ];
 
   return (
     <>
       <Nav
-        params={{
-          pathUrl,
+        drawer={{
           setIsOpen,
-          onBookNowClick,
-          onContactUsClick,
-          onGalleryClick,
-          onHomeClick,
         }}
+        paths={paths}
       />
       <Drawer
-        params={{
+        paths={paths}
+        drawer={{
           isOpen,
-          pathUrl,
           setIsOpen,
-          onBookNowClick,
-          onContactUsClick,
-          onGalleryClick,
-          onHomeClick,
         }}
       />
     </>

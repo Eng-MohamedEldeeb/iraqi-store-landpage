@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as galleryImgs from "./../../../assets/gallery/index";
 import ImageModal from "./Components/ImageModal";
+import { background } from "../../../assets/store";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -22,12 +23,21 @@ const Gallery = () => {
     { id: 14, src: galleryImgs.img14 },
   ];
 
-  console.log({ imgs });
-
   return (
-    <section className="py-24 bg-neutral-900">
+    <section
+      style={{ backgroundImage: `url(${background})` }}
+      className="py-24 bg-neutral-900 min-h-screen
+    w-full
+    bg-center
+    bg-cover
+    bg-no-repeat
+    flex items-center
+    justify-center
+    relative"
+    >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-14 text-center">
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/80" />
+        <div className="relative z-10 mb-14 text-center">
           <h2 className="text-amber-600 text-4xl md:text-5xl font-bold mb-4">
             Gallery
           </h2>

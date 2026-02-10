@@ -1,5 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import { BookNow, ContactUs, Gallery, Home, Layout } from "./project/Pages";
+import {
+  BookNow,
+  ContactUs,
+  Gallery,
+  Home,
+  Layout,
+  Store,
+} from "./project/Pages";
 
 const AppRouters = () => {
   return createBrowserRouter(
@@ -13,16 +20,20 @@ const AppRouters = () => {
             element: <Home />,
           },
           {
-            path: "/book-now",
-            element: <BookNow />,
-          },
-          {
             path: "/gallery",
             element: <Gallery />,
           },
           {
+            path: "/store",
+            element: <Store />,
+          },
+          {
             path: "/contact-us",
             element: <ContactUs />,
+          },
+          {
+            path: "/book-now",
+            element: <BookNow />,
           },
         ],
       },

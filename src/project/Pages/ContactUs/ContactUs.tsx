@@ -1,12 +1,25 @@
+import { background } from "../../../assets/store";
 import { avatar } from "./../../../assets/contactUs/index";
 import ContactForm from "./Components/ContactForm";
 
 const ContactUs = () => {
   return (
-    <section className="py-20 bg-neutral-950">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      style={{ backgroundImage: `url(${background})` }}
+      className="py-20 bg-neutral-950 min-h-screen
+    w-full
+    bg-center
+    bg-cover
+    bg-no-repeat
+    flex items-center
+    justify-center
+    relative"
+    >
+      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/80" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Contact Us
           </h2>

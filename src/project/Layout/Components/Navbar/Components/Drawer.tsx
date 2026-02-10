@@ -1,24 +1,27 @@
+import { useState } from "react";
+import type { INavbarPaths } from "../../../../../@types/INavbarPaths.interface";
+import { useNavigate } from "react-router-dom";
+
 const Drawer = ({
-  params,
+  drawer,
+  paths,
 }: {
-  params: {
+  drawer: {
     isOpen: boolean;
-    pathUrl: string;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    onHomeClick: () => void | Promise<void>;
-    onGalleryClick: () => void | Promise<void>;
-    onContactUsClick: () => void | Promise<void>;
-    onBookNowClick: () => void | Promise<void>;
   };
+  paths: INavbarPaths[];
 }) => {
+  const [, setPathUrl] = useState(location.pathname);
+  const navigateTo = useNavigate();
   return (
     <>
       {/* Overlay */}
       <div
-        onClick={() => params.setIsOpen(false)}
+        onClick={() => drawer.setIsOpen(false)}
         className={`
     fixed inset-0 bg-black/70 z-40 transition-opacity duration-300
-    ${params.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
+    ${drawer.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
   `}
       ></div>
 
@@ -30,7 +33,7 @@ const Drawer = ({
     border-l border-neutral-800
     shadow-2xl
     transform transition-transform duration-300
-    ${params.isOpen ? "translate-x-0" : "translate-x-full"}
+    ${drawer.isOpen ? "translate-x-0" : "translate-x-full"}
   `}
       >
         <div className="p-6 flex flex-col gap-6 text-white h-full">
@@ -38,7 +41,7 @@ const Drawer = ({
           <div className="flex items-center justify-between">
             <span className="text-lg font-semibold">Menu</span>
             <button
-              onClick={() => params.setIsOpen(false)}
+              onClick={() => drawer.setIsOpen(false)}
               className="text-xl hover:text-amber-400 transition"
             >
               <i className="fa-solid fa-x"></i>
@@ -48,51 +51,33 @@ const Drawer = ({
           <div className="h-px bg-neutral-800 my-2" />
 
           {/* Links */}
-          <button
-            onClick={() => {
-              params.onHomeClick();
-              params.setIsOpen(false);
-            }}
-            className={`text-left py-2 transition ${
-              params.pathUrl === "/" ? "text-amber-500" : "hover:text-amber-400"
-            }`}
-          >
-            Home
-          </button>
 
-          <button
-            onClick={() => {
-              params.onGalleryClick();
-              params.setIsOpen(false);
-            }}
-            className={`text-left py-2 transition ${
-              params.pathUrl === "/gallery"
-                ? "text-amber-500"
-                : "hover:text-amber-400"
-            }`}
-          >
-            Gallery
-          </button>
-
-          <button
-            onClick={() => {
-              params.onContactUsClick();
-              params.setIsOpen(false);
-            }}
-            className={`text-left py-2 transition ${
-              params.pathUrl === "/contact-us"
-                ? "text-amber-500"
-                : "hover:text-amber-400"
-            }`}
-          >
-            Contact Us
-          </button>
+          {paths.map((path, i) => {
+            return (
+              <button
+                key={i}
+                onClick={() => {
+                  drawer.setIsOpen(false);
+                  setPathUrl(path.pathUrl);
+                  return navigateTo(path.pathUrl);
+                }}
+                className={`text-left py-2 transition ${
+                  path.pathUrl === location.pathname
+                    ? "text-amber-500"
+                    : "hover:text-amber-400"
+                }`}
+              >
+                {path.title}
+              </button>
+            );
+          })}
 
           {/* CTA */}
           <button
             onClick={() => {
-              params.onBookNowClick();
-              params.setIsOpen(false);
+              drawer.setIsOpen(false);
+              setPathUrl("/book-now");
+              return navigateTo("/book-now");
             }}
             className="
         mt-auto
